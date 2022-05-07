@@ -10,7 +10,7 @@ int main(){
         //part of the array
         int key = A[i];
         int j = i - 1;
-        while(j >= 0 and key < A[j]){ //if j = -1, A[-1] will show index error. so j needs to be positive
+        while(j >= 0 && key < A[j]){ //if j = -1, A[-1] will show index error. so j needs to be positive
             A[j+1] = A[j];
             j--;
         }
