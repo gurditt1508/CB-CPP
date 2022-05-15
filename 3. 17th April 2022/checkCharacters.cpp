@@ -10,7 +10,7 @@ int main(){
     if(ch >= 'A' && ch <= 'Z'){ //can also write 65 and 90 while keeping everything same
         cout << "character is upper case." << endl;
 
-    }else if(ch >= 'a' && ch <= 'z'){
+    }else if(ch >= 'a' and ch <= 'z'){
         cout << "character is lower case." << endl;
     }else if(ch >= '0' && ch <= '9'){
         cout << "character is a digit." << endl;
