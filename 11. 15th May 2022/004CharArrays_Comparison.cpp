@@ -26,7 +26,7 @@ int compareStrings(char* str1, char* str2){
 }
 
 int main(){
-	char str1[] = "man";
+	char str1[] = "mango";
 	char str2[] = "mango";
 
 	cout << compareStrings(str1, str2) << endl;
