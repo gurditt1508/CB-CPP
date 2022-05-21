@@ -38,11 +38,22 @@ int main(){
         }
     }
     else if( x < 0 and y < 0){ //3rd quadrant
-        
+        for(int i = 1; i <= -x; i++){
+            cout << 'W';
+        }        
+        for(int i = 1; i <= -y; i++){
+            cout << 'S';
+        }
     }
     else{ //4th quadrant
-
+        for(int i = 1; i <= x; i++){
+            cout << 'E';
+        }
+        for(int i = 1; i <= -y; i++){
+            cout << 'S';
+        }
     }
-    //cout << x << ", " << y;
+    cout << endl;
+    cout << x << ", " << y;
     return 0;
 }

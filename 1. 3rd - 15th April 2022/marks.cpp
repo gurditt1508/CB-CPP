@@ -5,7 +5,7 @@ using namespace std;
 int main() {
 
     int marks;
-    cout << "enter your marks: " << endl;
+    cout << "enter your marks: ";
     cin >> marks;
     if(marks > 90){
         cout << 'A';
