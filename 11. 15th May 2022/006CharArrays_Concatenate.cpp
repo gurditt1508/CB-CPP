@@ -12,13 +12,13 @@ void concatenate(char* str1, char* str2){
 		j++;
 		i++;
 	}
-	cout << str1;
+	cout << str1 << endl;
 }
 
 int main(){
 	char str1[100] = "hello";
 	char str2[50] = "world";
-	//concatenate(str1, str2);
+	concatenate(str1, str2);
 	cout << strcat(str1, str2);
 	return 0;
 }

@@ -8,6 +8,8 @@ int main(){
 
     cout << x << endl;
     cout << *xptr << endl;
-    cout << **xxptr << endl; 
+    cout << **xxptr << endl;
+    cout << xptr << endl;
+    cout << xxptr << endl; 
     return 0;
 }

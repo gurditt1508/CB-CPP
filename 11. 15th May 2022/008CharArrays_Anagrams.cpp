@@ -3,8 +3,8 @@
 using namespace std;
 
 bool validAnagram(char* str1, char* str2){
-	int f1[26] = {};
-	int f2[26] = {};
+	int f1[26] = {0};
+	int f2[26] = {0};
 	for(int i = 0; i<strlen(str1); i++){
 		//extract ith char of str1
 		char ch = str1[i];

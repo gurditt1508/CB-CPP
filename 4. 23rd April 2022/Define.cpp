@@ -3,6 +3,7 @@
 #define PRINT cout <<
 #define SEMICOLON ;
 #define F(n) for(int i = 1; i <= n; i++){cout << i << " ";}
+#define enter cin >> 
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int main(){
     // cout << PI * r * r << endl;
     // PRINT PI * r * r;
     int n SEMICOLON
-    cin >> n;
+    enter n SEMICOLON
     F(n)
 
     return 0;

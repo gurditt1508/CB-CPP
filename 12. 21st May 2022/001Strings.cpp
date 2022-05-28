@@ -21,15 +21,15 @@ int main(){
 	string str5(str2);
 	cout << str5 << endl;
 
-	// string str6; //taking input //if we enter "hello world", str6 will only contain hello, cin will terminate 
+	string str6; //taking input //if we enter "hello world", str6 will only contain hello, cin will terminate 
 								  // at space, then world will go in str7
-	// cout << "enter a string: " << endl;
-	// cin >> str6;
-	// cout << "you have entered " << str6 << endl;
+	cout << "enter a string: " << endl;
+	cin >> str6;
+	cout << "you have entered " << str6 << endl;
 
 	string str7; //taking input if we don't want to ignore whitespaces
 	cout << "enter another string: " << endl;
-	getline(cin, str7);
+	getline(cin, str7, '$');
 	cout << "you entered > " << str7 << endl;
 	return 0;
 }
