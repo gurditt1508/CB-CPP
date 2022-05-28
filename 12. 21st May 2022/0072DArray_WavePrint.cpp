@@ -2,6 +2,7 @@
 using namespace std;
 
 void Wave(int A[][3], int m, int n){
+	
 	for(int j = 0; j<n; j++){
 		if(j%2 == 0){
 			for(int i = 0; i<m; i++){
@@ -17,8 +18,12 @@ void Wave(int A[][3], int m, int n){
 
 int main(){
 	int A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
 	int m = 3;
+
 	int n = 3;
+
 	Wave(A, m, n);
+
 	return 0;
 }
