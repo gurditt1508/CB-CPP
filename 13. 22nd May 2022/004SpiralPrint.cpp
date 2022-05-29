@@ -34,7 +34,7 @@ int main() {
 
     	// print the er
 
-    	if(sr <= er) {
+    	if(sr <= er) { //if matrix is a horizontal rectangle, this prevents a row/element being printed twice
 	    	for(int j=ec; j>=sc; j--) {
 	    		cout << A[er][j] << " ";
 	    	}
@@ -43,7 +43,7 @@ int main() {
 	    }
 
     	// print the sc
-    	if(sc <= ec) {
+    	if(sc <= ec) { //if matrix is a vertical rectangle, this prevents a row/element being printed twice
 	    	for(int i=er; i>=sr; i--) {
 	    		cout << A[i][sc] << " ";
 	    	}
