@@ -9,6 +9,7 @@ int main(){
 	int n = sizeof(A) / sizeof(int);
 
 	for(int no = 0; no < pow(2,n); no++){
+//or for(int no = 0; no < (1<<n); no++){} //because 1<<n = 1*(2 ^n)
 		//iterate over the n-bit representation of
 		//no from right ot left i.e. from the 0th bit 
 		//till the (n-1)th bit
