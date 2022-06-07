@@ -7,19 +7,19 @@ int main(){
 	char dlim[] = {"."};
 
 	char* token = strtok(str, dlim);
-	while(token != NULL){
-		cout << token << endl;
-		token = strtok(NULL, dlim);
-	}
-	// cout << token << endl;
+	// while(token != NULL){
+	// 	cout << token << endl;
+	// 	token = strtok(NULL, dlim);
+	// }
+	cout << token << endl;
 
 	// token = strtok(NULL, dlim); //to get def
-	// //cout << token << endl;
-
-	// token = strtok(NULL, dlim);
-	// //cout << token << endl;
-
-	// token = strtok(NULL, dlim);
 	// cout << token << endl;
+
+	//token = strtok(NULL, dlim);
+	//cout << token << endl;
+
+	token = strtok(NULL, dlim);
+	cout << token << endl;
 	return 0;
 }
