@@ -33,8 +33,10 @@ void ReplacePi(char* inp, int i){
 }
 
 int main(){
-	char inp[201] = "pi";  //assume input string can be 100 + null character
+	char inp[201];  //assume input string can be 100 + null character
 	//if all of them are pi, a string of 200 + 1 length is needed
+	cout << "enter a string: ";
+	cin >> inp;
 	ReplacePi(inp, 0);
 	cout << inp << endl;
 
