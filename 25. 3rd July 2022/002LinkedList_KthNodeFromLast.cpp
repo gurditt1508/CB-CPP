@@ -15,6 +15,7 @@ using namespace std;
 	};
 	
 
+
 node* insertAtHead(int val, node* head){ //passing by reference
 	//1. create a new node dynamically 
 	node* n = new node(val);
@@ -38,44 +39,32 @@ void printLinkedList(node* head){ //if we pass head by reference, after printing
 
 }
 
-node* reverse(node* head){
-	node* prev = NULL;
-	node* cur = head;
+node* kthNodeFromLast(node* head, int k){
 
-	while(cur){
-		node* temp = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = temp;
-	}
-	return prev;
-}
-
-node* reverseRecursive(node* head){
-
-	//base case
-	// if(!head){
-	// 	return NULL;
-	// }
-
-	// if(!head->next){ //head->next == NULL
-	// 	return head;
-	// }
-	if(!head || !head->next){ //merging the two base cases
-		return head;
+	node* fast = head;
+	while(k-- and fast){
+		fast = fast->next;
 	}
 
-	//recursive case
-	node* revHead = reverseRecursive(head->next);
-	head->next->next = head;
-	head->next = NULL;
+	if(!fast){
+		//if k exceeds the length of the linked list
+		//we are assuming that there is no kth node from end
+		return NULL;
+	}
 
-	return revHead;
+	node* slow = head;
+
+	while(!fast){
+		slow = slow->next;
+		fast = fast->next;
+	}
+
+	return slow;
 }
 
 int main(){
 
-	node* head = NULL; //initially empty
+	node* head = NULL;
 
 	head = insertAtHead(50, head);
 	head = insertAtHead(40, head);
@@ -85,9 +74,10 @@ int main(){
 
 	printLinkedList(head); //head represents the entire linked list
 
-	head = reverseRecursive(head);
+	int k = 2;
+	node* nodeK = kthNodeFromLast(head, k);
 
-	printLinkedList(head);
+	nodeK ? cout << k <<"th node from last: " << nodeK->val << endl : cout << "invalid input." << endl;
 
 	return 0;
 }

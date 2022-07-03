@@ -14,7 +14,6 @@ using namespace std;
 		}
 	};
 	
-
 node* insertAtHead(int val, node* head){ //passing by reference
 	//1. create a new node dynamically 
 	node* n = new node(val);
@@ -38,56 +37,39 @@ void printLinkedList(node* head){ //if we pass head by reference, after printing
 
 }
 
-node* reverse(node* head){
-	node* prev = NULL;
-	node* cur = head;
-
-	while(cur){
-		node* temp = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = temp;
-	}
-	return prev;
-}
-
-node* reverseRecursive(node* head){
-
-	//base case
-	// if(!head){
-	// 	return NULL;
-	// }
-
-	// if(!head->next){ //head->next == NULL
-	// 	return head;
-	// }
-	if(!head || !head->next){ //merging the two base cases
+node* getMidPoint(node* head){
+	if(!head){ //empty linked list
 		return head;
 	}
 
-	//recursive case
-	node* revHead = reverseRecursive(head->next);
-	head->next->next = head;
-	head->next = NULL;
+	node* slow = head;
+	node* fast = head->next;
 
-	return revHead;
+	while(fast and fast->next){
+		slow = slow->next;
+		fast = fast->next->next;
+
+	}
+
+	return slow;
 }
 
 int main(){
 
-	node* head = NULL; //initially empty
+	node* head = NULL;
 
 	head = insertAtHead(50, head);
 	head = insertAtHead(40, head);
 	head = insertAtHead(30, head);
 	head = insertAtHead(20, head);
 	head = insertAtHead(10, head);
+	//head = insertAtHead(0, head);
 
 	printLinkedList(head); //head represents the entire linked list
 
-	head = reverseRecursive(head);
+	node* midpoint = getMidPoint(head);
 
-	printLinkedList(head);
+	cout << "midpoint of linked list is " << midpoint->val << endl;
 
 	return 0;
 }

@@ -14,8 +14,7 @@ using namespace std;
 		}
 	};
 	
-
-node* insertAtHead(int val, node* head){ //passing by reference
+node* insertAtHead(node* head, int val){ //passing by reference
 	//1. create a new node dynamically 
 	node* n = new node(val);
 	//2. update the next field of the newly created node 
@@ -38,56 +37,44 @@ void printLinkedList(node* head){ //if we pass head by reference, after printing
 
 }
 
-node* reverse(node* head){
+node* kReverse(node* head, int k){
+
+	if(!head){
+		return head;
+	}
+	//reverse first k nodes of given L.L.
 	node* prev = NULL;
 	node* cur = head;
-
-	while(cur){
+	int i = 0;
+	while(cur and i<k){
 		node* temp = cur->next;
 		cur->next = prev;
 		prev = cur;
 		cur = temp;
+		i++;
 	}
+
+	node* headFromMyFriend = kReverse(cur, k);
+	head->next = headFromMyFriend;
 	return prev;
 }
 
-node* reverseRecursive(node* head){
-
-	//base case
-	// if(!head){
-	// 	return NULL;
-	// }
-
-	// if(!head->next){ //head->next == NULL
-	// 	return head;
-	// }
-	if(!head || !head->next){ //merging the two base cases
-		return head;
-	}
-
-	//recursive case
-	node* revHead = reverseRecursive(head->next);
-	head->next->next = head;
-	head->next = NULL;
-
-	return revHead;
-}
-
 int main(){
-
-	node* head = NULL; //initially empty
-
-	head = insertAtHead(50, head);
-	head = insertAtHead(40, head);
-	head = insertAtHead(30, head);
-	head = insertAtHead(20, head);
-	head = insertAtHead(10, head);
-
-	printLinkedList(head); //head represents the entire linked list
-
-	head = reverseRecursive(head);
+	node* head = NULL;
+	insertAtHead(head, 80);
+	insertAtHead(head, 70);
+	insertAtHead(head, 60);
+	insertAtHead(head, 50);
+	insertAtHead(head, 40);
+	insertAtHead(head, 30);
+	insertAtHead(head, 20);
+	insertAtHead(head, 10);
 
 	printLinkedList(head);
 
-	return 0;
+	int k = 3;
+
+	head = kReverse(head, k);
+
+	printLinkedList(head);
 }
