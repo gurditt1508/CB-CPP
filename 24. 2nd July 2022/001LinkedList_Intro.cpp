@@ -2,11 +2,11 @@
 
 using namespace std;
 
-	class node{
+class node{
 
 	public:
 		int val;
-		node* next;
+		node* next; //pointer to a node
 
 		node(int val){
 			this->val = val;
@@ -19,7 +19,7 @@ using namespace std;
 // 	node* n = new node(val);
 // 	//2. update the next field of the newly created node 
 // 	//such that it points to the head of the linked list
-// 	n->next = head;
+// 	n->next = head; //we could also write (*n).next = head;
 
 // 	//3. make the newly created node as the new head of the linked list
 // 	head = n;
