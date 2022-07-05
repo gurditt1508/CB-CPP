@@ -29,22 +29,31 @@ void printLinkedList(node* head) {
 	cout << endl;
 }
 
-node* getMidPoint(node* head) {
+node* kReverse(node* head, int k) {
 
-	if(!head) { // head == NULL
-		// linked list is empty
+	if(!head) {
 		return head;
 	}
 
-	node* slow = head;
-	node* fast = head; // or fast = head->next (depends on expected o/p for even length linked list)
+	// reverse the first k nodes of the given linked list
 
-	while(fast && fast->next) { // fast != NULL && fast->next != NULL
-		slow = slow->next;
-		fast = fast->next->next;
+	node* prev = NULL;
+	node* cur = head;
+
+	int i = 0;
+
+	while(cur && i < k) {
+		node* temp = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = temp;
+		i++;
 	}
 
-	return slow;
+	// ask your friend to k-reverse the remaining sub-list
+	node* headFromMyFriend = kReverse(cur, k);
+	head->next = headFromMyFriend;
+	return prev;
 
 }
 
@@ -52,6 +61,9 @@ int main() {
 
 	node* head = NULL;
 
+	insertAtHead(head, 80);
+	insertAtHead(head, 70);
+	insertAtHead(head, 60);
 	insertAtHead(head, 50);
 	insertAtHead(head, 40);
 	insertAtHead(head, 30);
@@ -60,8 +72,11 @@ int main() {
 
 	printLinkedList(head);
 
-	node* midPoint = getMidPoint(head);
-	cout << "midPoint->val : " << midPoint->val << endl;
+	int k = 3;
+
+	head = kReverse(head, k);
+
+	printLinkedList(head);
 
 	return 0;
 }
