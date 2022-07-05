@@ -14,25 +14,7 @@ using namespace std;
 		}
 	};
 	
-// void insertAtHead(int val, node*& head){ //passing by reference
-// 	//1. create a new node dynamically 
-// 	node* n = new node(val);
-// 	//2. update the next field of the newly created node 
-// 	//such that it points to the head of the linked list
-// 	n->next = head;
-
-// 	//3. make the newly created node as the new head of the linked list
-// 	head = n;
-// }
-
-node* getTail(node* temp){
-	while(temp->next != NULL){
-		temp = temp->next;
-	}
-	return temp;
-}
-
-node* insertAtHead(int val, node* head){ //passing by reference
+void insertAtHead(int val, node*& head){ //passing by reference
 	//1. create a new node dynamically 
 	node* n = new node(val);
 	//2. update the next field of the newly created node 
@@ -41,7 +23,13 @@ node* insertAtHead(int val, node* head){ //passing by reference
 
 	//3. make the newly created node as the new head of the linked list
 	head = n;
-	return head;
+}
+
+node* getTail(node* temp){
+	while(temp->next != NULL){
+		temp = temp->next;
+	}
+	return temp;
 }
 
 
@@ -58,7 +46,7 @@ void printLinkedList(node* head){ //if we pass head by reference, after printing
 void insertAtTail(int val, node*& head){
 	if(head == NULL){ //empty linked list i.e. corner case
 		insertAtHead(val, head);
-		...
+		return;
 	}
 	//1. create a new node dynamically with the given value
 	node* n = new node(val);
