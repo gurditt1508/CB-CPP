@@ -20,7 +20,7 @@ void spell(int n){
 }
 
 int main(){
-	int n = 689;
+	int n = 698;
 
 	spell(n);
 

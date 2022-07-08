@@ -8,7 +8,8 @@ int f(int* arr, int n, int i){
 	}
 
 	int A = f(arr, n, i+1);
-	cout << arr[0] + A;
+
+	return arr[i] + A;
 }
 
 
@@ -17,5 +18,6 @@ int main(){
 	int arr[] = {1,2,3,4,5};
 	int n = sizeof(arr) / sizeof(int);
 
-	f(arr, n, 0);
+	int sum = f(arr, n, 0);
+	cout << sum << endl;
 }

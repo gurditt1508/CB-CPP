@@ -2,40 +2,45 @@
 
 using namespace std;
 
-class node{
+class node {
 
-	public:
+	public :
+
 		int val;
 		node* next;
 
-		node(int val){
+		node(int val) {
 			this->val = val;
 			this->next = NULL;
 		}
+
 };
-	
-void insertAtHead(int val, node*& head){ //passing by reference
-	//1. create a new node dynamically 
+
+void insertAtHead(int val, node*& head) {
+
+	// 1. create a new node dynamically with the given value
 	node* n = new node(val);
-	//2. update the next field of the newly created node 
-	//such that it points to the head of the linked list
+
+	// 2. update the next field of the newly created node
+	// such that it points to the head of the linked list
 	n->next = head;
 
-	//3. make the newly created node as the new head of the linked list
+	// 3. make the newly created node as the new head of 
+	// the linked list
 	head = n;
+
 }
 
-// node* insertAtHead(int val, node* head){ //passing by reference
-// 	//1. create a new node dynamically 
-// 	node* n = new node(val);
-// 	//2. update the next field of the newly created node 
-// 	//such that it points to the head of the linked list
-// 	n->next = head;
+void printLinkedList(node* head) {
 
-// 	//3. make the newly created node as the new head of the linked list
-// 	head = n;
-// 	return head;
-// }
+	while(head != NULL) { // while(head)
+		cout << head->val << " ";
+		head = head->next;
+	}
+
+	cout << endl;
+
+}
 
 void deleteAtHead(node*& head) {
 
@@ -47,28 +52,6 @@ void deleteAtHead(node*& head) {
 	node* temp = head;
 	head = head->next;
 	delete temp;
-}
-
-node* getNode(int j, node* temp){
-
-	int k = 0;
-	while(temp != NULL and k<j){ //while(temp and k<j)
-		temp = temp->next;
-		k++;
-	}
-
-	return temp;
-}
-
-
-void printLinkedList(node* head){ //if we pass head by reference, after printing the head will point to NULL
-	while(head != NULL){ //while(head)
-		cout << head->val << " ";
-		head = head->next;
- 	}
-
- 	cout << endl;
-
 }
 
 void deleteAtTail(node*& head) {
@@ -97,48 +80,71 @@ void deleteAtTail(node*& head) {
 
 }
 
+node* getNode(int j, node* temp) {
 
-void deleteAtIndex(int i, node* head){
-
-	if(i == 0){
-		//**deleteAtHead(head);
-		//return;
+	int k = 0;
+	while(temp != NULL && k < j) { // while(temp && k < j)
+		temp = temp->next;
+		k++;
 	}
 
-	node* prev = getNode(i-1, head);
+	return temp;
 
-	if(prev == NULL){ //you are trying to delete at an invalid index
-		return;
-	}
-	node* cur = getNode(i, head);
-
-	if(!cur){	//you are trying to delete at an invalid index
-		return;
-	}
-
-	prev->next = cur->next;
-
-	delete cur;
 }
 
-int main(){
+void deleteAtIndex(int i, node*& head) {
 
-	node* head = NULL;
+	if(i == 0) {
+		deleteAtHead(head);
+		return;
+	}
 
-	head = insertAtHead(50, head);
-	head = insertAtHead(40, head);
-	head = insertAtHead(30, head);
-	head = insertAtHead(20, head);
-	head = insertAtHead(10, head);
-	head = insertAtHead(0, head);
+	// 1. get hold of the pointer to the node at the (i-1)th index
+	node* prev = getNode(i-1, head);
 
-	printLinkedList(head); //head represents the entire linked list
+	if(prev == NULL) {
+		// you are trying to delete at an invalid index
+		return;
+	}
 
-	deleteAtIndex(2,head);
+	// 2. get hold of the pointer to the node at the ith index
+	node* cur = getNode(i, head);
+
+	if(cur == NULL) {
+		// you are trying to delete at an invalid index
+		return;
+	}
+
+	// 3. update the next field of the prev. node such that it 
+	// points to next of current node
+	prev->next = cur->next;
+
+	// 4. release the memory for the current node
+	delete cur;
+
+}
+
+int main() {
+
+	node* head = NULL; // linked list is initially empty
+
+	insertAtHead(50, head);
+	insertAtHead(40, head);
+	insertAtHead(30, head);
+	insertAtHead(20, head);
+	insertAtHead(10, head);
+	
+	printLinkedList(head);
+
+	deleteAtIndex(2, head);
 
 	printLinkedList(head);
 
 	deleteAtIndex(0, head);
+
+	printLinkedList(head);
+
+	deleteAtIndex(2, head);
 
 	printLinkedList(head);
 
