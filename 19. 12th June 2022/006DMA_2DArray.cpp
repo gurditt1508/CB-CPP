@@ -2,7 +2,27 @@
 
 using namespace std;
 
+void f1(int* A){}
+
+void print(int** ptr, int m, int n){
+for(int i = 0; i<m; i++){
+	for(int j = 0; j<n; j++){
+		cout << ptr[i][j] << " ";//cout << *(*(ptr + i) + j) << " "; 
+	}
+	cout << endl;
+	}
+
+}
+
+void f2(int B[][4]){}
+
 int main(){
+
+	int A[5];
+	f1(A);
+
+	int B[3][4];
+	f2(B);
 	
 	int m;
 
@@ -24,16 +44,18 @@ int main(){
 
 	for(int i = 0; i<m; i++){
 		for(int j = 0; j<n; j++){
-			cin >> ptr[i][j];
+			cin >> ptr[i][j]; 
 		}
 	}
 
 	for(int i = 0; i<m; i++){
 		for(int j = 0; j<n; j++){
-			cout << ptr[i][j] << " ";
+			cout << ptr[i][j] << " ";//cout << *(*(ptr + i) + j) << " "; 
 		}
 		cout << endl;
 	}
+
+	print(ptr, m, n);
 
 	cout << endl;
 
