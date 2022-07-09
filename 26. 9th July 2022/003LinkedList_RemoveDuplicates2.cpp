@@ -79,6 +79,7 @@ int main() {
 	insertAtHead(head, 2);
 	insertAtHead(head, 2);
 	insertAtHead(head, 1);
+	//insertAtHead(head, 1);
 	
 	printLinkedList(head);
 
