@@ -11,10 +11,19 @@ int main(){
 	s.insert(2);
 	s.insert(1);
 
+	for(auto x : s){
+		cout << x << " ";
+	}
+
 	cout << "size: " << s.size() << endl;
 
 	s.erase(5);
 	cout << "size: " << s.size() << endl;
+
+	for(auto x : s){
+		cout << x << " ";
+	}
+	
 
 	for(auto it = s.begin(), end = s.end(); it != end; it++){ //instead of using auto, we can also use 
 		//set<int>::iterator

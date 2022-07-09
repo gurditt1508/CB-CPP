@@ -31,7 +31,7 @@ string movex(string str){
 int main(){
 	string str = "axbxcx";
 	int n = str.size();
-	cout << movex(str) << endl; \
+	cout << movex(str) << endl; 
 	
 	return 0;
 }
