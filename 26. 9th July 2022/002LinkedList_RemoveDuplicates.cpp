@@ -34,7 +34,7 @@ node* removeDuplicates(node* head){
 
 void insertAtHead(int val, node*& head){ 
 	node* n = new node(val);
-	n->next = head; //we could also write (*n).next = head;
+	n->next = head;
 	head = n;
 }
 
