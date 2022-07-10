@@ -120,19 +120,19 @@ int main() {
 
 	node* head1 = NULL;
 
-	insertAtHead(head1, 9);
-	insertAtHead(head1, 9);
-	insertAtHead(head1, 9);
+	insertAtHead(head1, 1);
+	insertAtHead(head1, 2);
+	insertAtHead(head1, 3);
 	
 	printLinkedList(head1);
 
 	node* head2 = NULL;
 
-	insertAtHead(head2, 9);
-	insertAtHead(head2, 9);
-	insertAtHead(head2, 9);
-	insertAtHead(head2, 9);
-	insertAtHead(head2, 9);
+	insertAtHead(head2, 4);
+	insertAtHead(head2, 5);
+	insertAtHead(head2, 6);
+	// insertAtHead(head2, 9);
+	// insertAtHead(head2, 9);
 
 	printLinkedList(head2);
 
