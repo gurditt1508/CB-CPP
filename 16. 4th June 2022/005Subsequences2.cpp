@@ -19,7 +19,7 @@ void generateSubsequences(char* inp, char* out, int i, int j, set<string>& s){
 }
 
 int main(){
-	char inp[10] = "abc";
+	char inp[10] = "abcd";
 	char out[10];
 	set<string> s;
 	generateSubsequences(inp, out, 0, 0, s);
