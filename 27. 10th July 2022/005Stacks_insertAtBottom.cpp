@@ -44,4 +44,5 @@ int main(){
 
 	print(s);
 
+	return;
 }
