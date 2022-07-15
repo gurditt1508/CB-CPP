@@ -54,7 +54,7 @@ int numOfPaintersRequired(int n, int* len, int timeLimit) {
 
 }	
 
-int getMinTime(int k, int n, int*len) {
+int getMinTime(int k, int n, int* len) {
 	int s = INT_MIN; // for the tightest lower-bound, assign a painter to each board
 	int e = 0;       // for the tightest upper-bound, assign a single painter to paint all the boards
 	for(int i=0; i<n; i++) {
