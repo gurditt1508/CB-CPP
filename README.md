@@ -1,1 +1,1 @@
-for documentation, refer cplusplus.com
+for documentation, please refer cplusplus.com
