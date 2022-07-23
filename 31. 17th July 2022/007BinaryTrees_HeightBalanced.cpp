@@ -146,8 +146,8 @@ int main() {
 
 	node* root = buildTree();
 
-	// checkHeightBalanced(root) ? cout << "height-balanced!" << endl :
-	//                             cout << "not height-balanced" << endl;
+	// checkHeightBalanced(root) ? cout << "height-balanced!" << endl :-,
+		//                             cout << "not height-balanced" << endl;
 
 	checkHeightBalancedEfficient(root).isHeightBalanced ? cout << "height-balanced!" << endl :
                                                           cout << "not height-balanced" << endl;
